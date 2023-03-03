@@ -1,0 +1,36 @@
+// @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/maps";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/utilities";
+
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "cursor": (                  // map的名稱
+//       property: cursor,          // class名稱裡面的css屬性！！
+//       values: auto pointer grab, // class名稱－values＆class名稱裡面的css屬性值！！！
+//       class: cursorMyCursor,     // class名稱的開頭！！
+//       responsive: false,         // 此css是否支援RWD，如果是，會有sm、md、lg、xl、xxl
+//     )
+//   )
+// );
+
+
+// // (custom: 100px) => 新增元素到舊有的"width"裏面
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "width": map-merge(
+//       map-get($utilities, "width"),
+//       (
+//         values: map-merge(
+//           map-get(map-get($utilities, "width"), "values"),
+//           (custom: 900px),
+//         ),
+//       ),
+//     ),
+//   )
+// );
+
+@import "../node_modules/bootstrap/scss/bootstrap";
