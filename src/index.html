@@ -7,7 +7,8 @@
     <title>電商網站UI</title>
   </head>
   <body>
-    <!-- pb-3 pb-md-0      md-0的意思是，大於md尺寸後就不要有padding了！ -->
+    <!-- 實作導覽列Navbar
+        pb-3 pb-md-0      md-0的意思是，大於md尺寸後就不要有padding了！ -->
     <nav class="navbar navbar-expand-lg text-light bg-primary">
         <!-- 因為flex預設為水平排列，所以若想要換行，class要加flex-column -->
         <div class="container-fluid flex-column">
@@ -76,5 +77,36 @@
             </div>
         </div>
     </nav>
+
+    <!-- 實作輪播圖Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <!-- 輪播的大小取決於圖片的尺寸！ -->
+                <div class="w-100">
+                    <img src="https://bruce-fe-ec.web.app/images/banner.png" class="d-block w-100">
+                </div>
+            </div>
+          <div class="carousel-item">
+            <img src="https://bruce-fe-ec.web.app/images/banner.png" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="https://bruce-fe-ec.web.app/images/banner.png" class="d-block w-100">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
   </body>
 </html>
