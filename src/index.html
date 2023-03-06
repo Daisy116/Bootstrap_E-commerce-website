@@ -107,6 +107,223 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
+    </div>
+
+    <!-- 實作「搜尋結果」和「篩選按鈕」 -->
+    <div class="container-md">
+        <div class="row">
+            <!-- 電腦版的篩選欄：左邊2/12放篩選條件，右邊剩下的10/12放商品資訊
+                 d-none: display none，代表這個div被隱藏起來，直到 md 寬度的時候才會顯示(block) -->
+            <div class="col-2 d-none d-md-block">
+                <div class="d-flex justify-content-between align-items-center h-80px">
+                    <div class="d-flex fw-bold align-items-center">
+                        <svg class="me-1" fill="#000"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            class="bi bi-menu-button-wide"
+                            viewBox="0 0 16 16">
+                            <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-13z"/>
+                            <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        條件篩選
+                        
+                    </div>
+                </div>
+                <p class="fw-bold">分類</p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault1">
+                    <label class="form-check-label fs-7" for="flexCheckDefault1">家電類</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault2">
+                    <label class="form-check-label fs-7" for="flexCheckDefault2">食物類</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault3">
+                    <label class="form-check-label fs-7" for="flexCheckDefault3">清潔類</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault4">
+                    <label class="form-check-label fs-7" for="flexCheckDefault4">遊戲類</label>
+                </div>
+
+                <div class="collapse" id="filter-collapse">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="flexCheckDefault5">
+                        <label class="form-check-label fs-7" for="flexCheckDefault5">居家生活類</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="flexCheckDefault6">
+                        <label class="form-check-label fs-7" for="flexCheckDefault6">限制級類</label>
+                    </div>
+                </div>
+
+                <p class="cursor-pointer d-flex align-items-center" id="filter-collapse-btn">
+                    <svg class="me-2 transition-transform" id="filter-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                    <span class="fs-7" id="filter-btn-text">顯示更多</span>
+                </p>
+
+                <hr class="w-75">
+
+                <p class="fw-bold">出貨地點</p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault7">
+                    <label class="form-check-label fs-7" for="flexCheckDefault7">國內</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault8">
+                    <label class="form-check-label fs-7" for="flexCheckDefault8">海外</label>
+                </div>
+
+                <hr class="w-75">
+
+                <p class="fw-bold">價格範圍</p>
+                <div class="d-flex">
+                    <!-- flex-grow-1: 盡量佔滿空間(好像沒什麼效果？) -->
+                    <input type="text" class="form-control fs-7 flex-grow-1" placeholder="最低價">
+                    <hr class="w-50px mx-2">
+                    <input type="text" class="form-control fs-7 flex-grow-1" placeholder="最高價">
+                </div>
+
+                <button class="btn btn-primary text-light w-100 my-3 fs-7">套用</button>
+            </div>
+            <div class="col">
+                <!-- 這個div放「搜尋結果」和「篩選按鈕」
+                     設定為flex，水平用between的方式擺設div和button，垂直置中
+                      h-80px為自定義的utilities，將高度限制為80px -->
+                <div class="d-flex justify-content-between align-items-center h-80px">
+                    <!-- fw-bold: 文字粗體
+                         text-gray-700也是自定義的 -->
+                    <div class="d-flex fw-bold text-gray-700 ">
+                        <svg class="me-1 mb-1"
+                             xmlns="http://www.w3.org/2000/svg"
+                             width="24"
+                             height="24"
+                             fill="currentColor"
+                             class="bi bi-lightbulb"
+                             viewBox="0 0 16 16">
+                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                        </svg>
+                        <div class="text-primary me-1">沐浴乳</div>
+                        的搜尋結果
+                    </div>
+                    <button class="btn d-flex d-md-none w-50px" id="mobile-filter-btn">
+                        <!-- svg的fill顏色改成這個橘色色碼 -->
+                        <svg fill="#fb5830"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            class="bi bi-filter"
+                            viewBox="0 0 16 16">
+                            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- [手機版的]實作側邊選單Offcanvas -->      
+    <div class="offcanvas offcanvas-start" 
+        id="offcanvasSrolling" 
+        data-bs-sroll="true" 
+        data-bs-backdrop="false"
+        tabindex="-1" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">
+                <svg class="" fill="#000"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    class="bi bi-menu-button-wide"
+                    viewBox="0 0 16 16">
+                    <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-13z"/>
+                    <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                條件篩選
+            </h5>  
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="fw-bold">分類</p>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check1">
+                <label class="form-check-label fs-7" for="offcanvas-check1">家電類</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check2">
+                <label class="form-check-label fs-7" for="offcanvas-check2">食物類</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check3">
+                <label class="form-check-label fs-7" for="offcanvas-check3">清潔類</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check4">
+                <label class="form-check-label fs-7" for="offcanvas-check4">遊戲類</label>
+            </div>
+
+            <!-- 實作收合按鈕Collapse
+                 collapse裡面放兩個類別，點收合時針對這兩個分類顯示 -->
+            <div class="collapse" id="filter-mobile-collapse">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="offcanvas-check5">
+                    <label class="form-check-label fs-7" for="offcanvas-check5">居家生活類</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="offcanvas-check6">
+                    <label class="form-check-label fs-7" for="offcanvas-check6">限制級類</label>
+                </div>
+            </div>
+            <!-- 收合按鈕Collapse的icon和文字！ -->
+            <p class="d-flex align-items-center" id="filter-mobile-collapse-btn">
+                <svg class="me-2 transition-transform"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-caret-down-fill"
+                    viewBox="0 0 16 16"
+                    id="filter-mobile-icon">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+                <span class="fs-7" id="filter-mobile-btn-text">顯示更多</span>
+            </p>
+
+            <!-- 用<hr>下一個分隔線，用Bootstrap自帶的寬度75% -->
+            <hr class="w-75">
+
+            <p class="fw-bold">出貨地點</p>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check7">
+                <label class="form-check-label fs-7" for="offcanvas-check7">國內</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="offcanvas-check8">
+                <label class="form-check-label fs-7" for="offcanvas-check8">海外</label>
+            </div>
+
+            <hr class="w-75">
+
+            <p class="fw-bold">價格範圍</p>
+            <div class="d-flex">
+                <!-- flex-grow-1: 盡量佔滿空間(好像沒什麼效果？) -->
+                <input type="text" class="form-control fs-7 flex-grow-1" placeholder="最低價">
+                <hr class="w-50px mx-2">
+                <input type="text" class="form-control fs-7 flex-grow-1" placeholder="最高價">
+            </div>
+            <button class="btn btn-primary text-light w-100 mt-3 fs-7">套用</button>
+        </div>
+    </div>
   </body>
 </html>
