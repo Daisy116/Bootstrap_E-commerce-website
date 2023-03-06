@@ -7,20 +7,22 @@ $gray-700: #596878;
 
 @import "../node_modules/bootstrap/scss/variables";
 
-// 擴充fs-7
+// 擴充fs-7、fs-8
 $font-sizes: map-merge(
     $font-sizes, 
     (
         7: 0.9rem,
+        8: 0.8rem,
     )  
 );
 
-// 擴充bg-line
+// 擴充bg-line、bg-gray-700、bg-gray-200
 $theme-colors: map-merge(
     $theme-colors, 
     (
         "line": #f97160,
         "gray-700": $gray-700,
+        "gray-200": $gray-200,  // variables裡面就有定義好的變數: $gray-200
     )  
 );
 

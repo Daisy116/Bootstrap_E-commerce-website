@@ -100,3 +100,37 @@ function offcanvasHandler() {
     });
 }
 offcanvasHandler();
+
+// 用JS產生20個商品的card
+function renderItems() {
+    // 取得放商品列表的div
+    const list = document.getElementById("list");
+
+    // 迴圈產生20個card
+    for (let i = 0; i < 20; i++) {
+        // 產生<div class="col">
+        const colItem = document.createElement("div");
+        colItem.classList.add("col");
+
+        colItem.innerHTML = `
+            <div class="mt-4">
+                <div class="card">
+                    <img src="https://bruce-fe-ec.web.app/images/item.png" class="card-img-top" >
+                    <div class="card-body pb-0">
+                        <h5 class="card-title text-primary">$2000</h5>
+                        <p class="card-text fs-7">這是一罐沐浴乳這是一罐沐浴乳這是一罐沐浴乳</p>
+                        <!-- text-end: 文字靠右對齊
+                            fs-8: 自定義font-sizes的class -->
+                        <p class="card-text text-end fs-8">已售出 1000</p>  
+
+                        <!-- 套用BS的badge樣式！在圖片右上角製作標籤的效果 -->
+                        <span class="badge position-absolute top-0 end-0 bg-primary">雙11優惠</span>
+                    </div>
+                </div>
+            </div>
+        `
+        // 在商品列表的div裡面加上商品的col
+        list.appendChild(colItem);
+    }
+}
+renderItems();

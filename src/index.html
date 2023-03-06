@@ -229,6 +229,61 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- 這個ul放商品列表的分類，套用了Bootstrap的Nav tabs樣式-->
+                <ul class="nav nav-pills bg-gray-200 p-2">
+                    <li class="nav-item">
+                      <a class="nav-link active fs-7" aria-current="page" href="#">綜合排名</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link fs-7" href="#">最新商品</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link fs-7" href="#">熱銷商品</a>
+                    </li>
+                </ul>
+
+                <!-- 這個div放商品列表的商品 -->
+                <div id="list" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                    <!-- 以下這些HTML內容，也會用JS的方式產生20個 -->
+                    <div class="col">
+                        <div class="mt-4">
+                            <!-- 套用了ＢＳ的card的樣式 -->
+                            <div class="card">
+                                <img src="https://bruce-fe-ec.web.app/images/item.png" class="card-img-top" >
+                                <div class="card-body pb-0">
+                                  <h5 class="card-title text-primary">$2000</h5>
+                                  <p class="card-text fs-7">這是一罐沐浴乳這是一罐沐浴乳這是一罐沐浴乳</p>
+                                  <!-- text-end: 文字靠右對齊
+                                        fs-8: 自定義font-sizes的class -->
+                                  <p class="card-text text-end fs-8">已售出 1000</p>  
+
+                                  <!-- 套用BS的badge樣式！在圖片右上角製作標籤的效果 -->
+                                  <span class="badge position-absolute top-0 end-0 bg-primary">雙11優惠</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 這個ul放商品列表的分頁，使用ＢＳ的 Pagination分頁
+                    justify-content-center: md以下時顯示在正中間(手機版) 
+                    justify-content-md-end: md時顯示靠右邊(電腦版)      -->
+                <ul class="pagination my-4 justify-content-center justify-content-md-end align-items-end">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
