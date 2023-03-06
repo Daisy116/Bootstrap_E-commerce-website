@@ -1,8 +1,9 @@
 @import "../node_modules/bootstrap/scss/functions";
 
 // 若有變數要改變，放在variables的前面！！
-// 將原本預設的primary藍色，改成蝦皮的橘色
+// 將原本預設的primary藍色，改成蝦皮的橘色。原本的secondary改成深橘色
 $primary: #fb5830;
+$secondary:#d0021c;
 $gray-700: #596878;
 
 @import "../node_modules/bootstrap/scss/variables";

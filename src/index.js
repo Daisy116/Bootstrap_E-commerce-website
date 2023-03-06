@@ -134,3 +134,29 @@ function renderItems() {
     }
 }
 renderItems();
+
+// 按了搜尋按鈕時，模擬跟後端拿資料時的轉圈圈效果
+function searchHandler() {
+    // 取得搜尋icon的button
+    const searchBtn = document.getElementById("search-btn");
+
+    // 取得商品列表的div，當轉圈圈時要隱藏起來
+    const itemsWrapper = document.getElementById("items-wrapper");
+
+    // 取得Spinners的div，當按下搜尋紐時要顯示
+    const spinnerWrapper = document.getElementById("spinner-wrapper");
+
+    searchBtn.addEventListener("click", function() {
+        // 點擊搜尋鈕後，d-none的class互換
+        itemsWrapper.classList.add("d-none");
+        spinnerWrapper.classList.remove("d-none");
+
+        // 用setTimeout模擬等待後端資料的時間
+        setTimeout(() => {
+            // 等1秒之後，d-none的class互換回來
+            itemsWrapper.classList.remove("d-none");
+            spinnerWrapper.classList.add("d-none");
+        }, 1000);
+    });
+}
+searchHandler();

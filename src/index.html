@@ -49,7 +49,7 @@
                 <div class="d-flex flex-grow-1">
                     <input type="search" class="form-control me-2 shadow-none" placeholder="搜尋商品" value="沐浴乳">
                     
-                    <button class="btn border d-flex align-items-center justify-content-center flex-shrink-0 w-50px me-2">
+                    <button id="search-btn" class="btn border d-flex align-items-center justify-content-center flex-shrink-0 w-50px me-2">
                         <!-- 這裡的svg，currentColor不是白色的，所以fill要下white -->
                         <svg fill="white"
                             xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +196,21 @@
 
                 <button class="btn btn-primary text-light w-100 my-3 fs-7">套用</button>
             </div>
-            <div class="col">
+
+            <!-- loading轉圈圈！(Spinners，當按下搜尋按鈕之後會跑出轉圈圈畫面，轉完再顯示商品)
+                 class下d-none，預設不顯示。後續用JS移除這個class -->
+            <div id="spinner-wrapper" class="col d-none">
+                <!-- flex-wrap: 換行！ -->
+                <div class="d-flex justify-content-center m-5 flex-wrap">
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="text-secondary mt-3 text-center w-100">商品載入中</p>
+                </div>
+            </div>
+
+            <!-- 商品列表的div，當轉圈圈時會隱藏(d-none) -->
+            <div id="items-wrapper" class="col">
                 <!-- 這個div放「搜尋結果」和「篩選按鈕」
                      設定為flex，水平用between的方式擺設div和button，垂直置中
                       h-80px為自定義的utilities，將高度限制為80px -->
