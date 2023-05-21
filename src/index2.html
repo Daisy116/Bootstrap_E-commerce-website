@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>股票網站</title>
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <!-- 導覽列 Header -->
+      <header
+        class="h-header mt-3 d-flex justify-content-between align-items-center"
+      >
+        <h1 class="text-white fs-5 fw-bold">布魯斯的股票網站</h1>
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+        >
+          交易
+        </button>
+      </header>
+
+      <!-- 側邊欄Offcanvas -->
+      <div
+        class="offcanvas offcanvas-end bg-card text-white"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header mt-2 d-flex align-items-center">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">交易</h5>
+          <button type="button" class="btn" data-bs-dismiss="offcanvas">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="#fff"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="mb-3">
+            <label for="amoutInput" class="form-label">項目</label>
+            <input
+              type="text"
+              class="form-control h-form-item"
+              id="amoutInput"
+              placeholder="Amount"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="priceInput" class="form-label">金額</label>
+            <input
+              type="text"
+              class="form-control h-form-item"
+              id="priceInput"
+              placeholder="Price"
+            />
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-success w-100 h-form-item">
+              買進
+            </button>
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-danger w-100 h-form-item">
+              賣出
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 用卡片(Cards)包附交易圖表，網址: https://tw.tradingview.com/widget/symbol-overview/ -->
+      <div class="card w-100 h-chart bg-card mt-3">
+        <div class="card-body">
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright">
+              <a
+                href="https://tw.tradingview.com/symbols/AAPL/"
+                rel="noopener"
+                target="_blank"
+                ><span class="blue-text">Apple</span></a
+              >由TradingView提供
+            </div>
+            <script
+              type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+              async
+            >
+                  {
+                  "symbols": [
+                  [
+                      "Apple",
+                      "AAPL|1D"
+                  ],
+                  [
+                      "Google",
+                      "GOOGL|1D"
+                  ],
+                  [
+                      "Microsoft",
+                      "MSFT|1D"
+                  ]
+                  ],
+                  "chartOnly": false,
+                  "width": "100%",
+                  "height": "100%",
+                  "locale": "zh_TW",
+                  "colorTheme": "dark",
+                  "autosize": true,
+                  "showVolume": false,
+                  "showMA": false,
+                  "hideDateRanges": false,
+                  "hideMarketStatus": false,
+                  "hideSymbolLogo": false,
+                  "scalePosition": "right",
+                  "scaleMode": "Normal",
+                  "fontFamily": "Andale Mono, monospace",
+                  "fontSize": "16",
+                  "noTimeScale": false,
+                  "valuesTracking": "1",
+                  "changeMode": "price-and-percent",
+                  "chartType": "area",
+                  "fontColor": "rgba(255, 255, 255, 1)",
+                  "gridLineColor": "rgba(216, 216, 216, 0.06)",
+                  "backgroundColor": "rgba(0, 0, 0, 0)",
+                  "widgetFontColor": "rgba(255, 255, 255, 1)",
+                  "lineColor": "#2962ff",
+                  "topColor": "rgba(41, 98, 255, 0.3)",
+                  "bottomColor": "rgba(41, 98, 255, 0)",
+                  "lineWidth": 3
+              }
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+      </div>
+
+      <!-- 買賣的歷史紀錄：用卡片(Cards)包附表格(table) -->
+      <div class="card w-100 bg-card mt-3">
+        <div class="card-body">
+            <table class="table text-white text-center table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">股票</th>
+                    <th scope="col">價格</th>
+                    <th scope="col">操作</th>
+                    <th scope="col">日期</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">蘋果</th>
+                    <td>190</td>
+                    <td class="text-success">BUY</td>
+                    <td>2023/03/03 10:23:57</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">鴻海</th>
+                    <td>200</td>
+                    <td class="text-danger">SELL</td>
+                    <td>2023/03/01 12:32:34</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">比特幣</th>
+                    <td>120</td>
+                    <td class="text-success">BUY</td>
+                    <td>2023/02/28 14:10:03</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">狗狗幣</th>
+                    <td>250</td>
+                    <td class="text-danger">SELL</td>
+                    <td>2023/02/27 12:58:20</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+
+      <!-- 新聞列表：用卡片(Cards)包附列表(List group)
+            會設置mb-3是因為手機版的底部留一點空間比較好看！！！ -->
+      <div class="card w-100 bg-card mt-3 mb-3">
+        <div class="card-body">
+            <!-- list-group-flush: 將邊框框線拿掉 -->
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-card text-white">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 fs-6">頻果新聞</h5>
+                    <small class="text-white">3 天前</small>
+                  </div>
+                  <p class="mb-1">這已經默定的作，理歡的人法樣的遺給大家呀就是不，然後不嚶嚶嚶問的印聖誕禮</p>
+                  <p class="w-100 text-white text-end fs-6">123456</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-card text-white">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">頻果新聞</h5>
+                    <small class="text-white">3 天前</small>
+                  </div>
+                  <p class="mb-1">這已經默定的作，理歡的人法樣的遺給大家呀就是不，然後不嚶嚶嚶問的印聖誕禮</p>
+                  <p class="text-white text-end">等等太多式了不床上，來以為沒什麼。</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-card text-white">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">頻果新聞</h5>
+                    <small class="text-white">3 天前</small>
+                  </div>
+                  <p class="mb-1">這已經默定的作，理歡的人法樣的遺給大家呀就是不，然後不嚶嚶嚶問的印聖誕禮</p>
+                  <p class="text-white text-end">等等太多式了不床上，來以為沒什麼。</p>
+                </a>     
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
